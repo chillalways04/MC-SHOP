@@ -158,6 +158,7 @@ git clone https://github.com/your-username/mc-shop.git
 cd mc-shop
 npm install
 npm run dev
+node server.js
 ```
 
 ---
