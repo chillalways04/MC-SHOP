@@ -47,8 +47,81 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 
 
 
-## Screenshots
-_(สามารถเพิ่มรูปหน้า Checkout / PromptPay / Orders ได้)_
+##  Visual Journey (User Experience)
+
+โปรเจกต์นี้ถูกออกแบบโดยเน้น **ประสบการณ์ผู้ใช้ (UX)** ที่ลื่นไหล ใช้งานง่าย และมีความต่อเนื่องตั้งแต่การเลือกสินค้าไปจนถึงหลังการสั่งซื้อ โดยแบ่งออกเป็น **4 ระยะหลัก (User Journey)** ดังนี้
+
+---
+
+###  Shopping Phase (Product Discovery)
+
+ระยะการค้นหาและเลือกชมสินค้า โดยเน้นความสะอาดตาและการจัดวางองค์ประกอบที่เหมาะสม
+
+**UX Highlights**
+- ใช้ **Grid System** และ **Glassmorphism UI**
+- มีระบบ Filter หมวดหมู่สินค้า
+- จัดลำดับข้อมูลสำคัญด้วย Visual Hierarchy
+
+<p align="center">
+  <img src="assets/image/home.png" width="400" />
+  <img src="screenshots/product-list.png" width="400" />
+</p>
+
+<p align="center">
+  <img src="screenshots/product-detail.png" width="400" />
+</p>
+
+---
+
+###  Decision Phase (Cart Management)
+
+ระยะการตัดสินใจและจัดการสินค้าก่อนเข้าสู่ขั้นตอนชำระเงิน
+
+**Technical Insight**
+- ใช้ **Vue Reactive State**
+- คำนวณยอดรวมและภาษีแบบ Real-time
+- จัดเก็บข้อมูลตะกร้าสินค้าใน **LocalStorage**
+
+<p align="center">
+  <img src="screenshots/cart.png" width="450" />
+</p>
+
+---
+
+###  Payment Phase (Checkout & QR Payment)
+
+ระยะการชำระเงินที่ออกแบบให้กระชับ ชัดเจน และลดภาระของผู้ใช้
+
+**UX Highlights**
+- Checkout แบบ **Step-by-Step**
+- ลด Cognitive Load ในการกรอกข้อมูล
+
+**Technical Insight**
+- แสดงยอดชำระผ่าน Modal
+- จำลองการยืนยันการโอนเงินด้วย PromptPay QR
+
+<p align="center">
+  <img src="screenshots/checkout.png" width="400" />
+  <img src="screenshots/qr-payment.png" width="400" />
+</p>
+
+---
+
+###  Post-Purchase (Order Management)
+
+ระยะหลังการสั่งซื้อ สำหรับการยืนยันคำสั่งซื้อและตรวจสอบประวัติย้อนหลัง
+
+**Technical Insight**
+- เก็บข้อมูลคำสั่งซื้อในรูปแบบ **Array of Objects**
+- จัดเก็บใน **LocalStorage** เพื่อเรียกดูย้อนหลังได้
+
+<p align="center">
+  <img src="screenshots/order-success.png" width="400" />
+  <img src="screenshots/order-history.png" width="400" />
+</p>
+
+---
+
 
 ---
 
