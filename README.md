@@ -68,7 +68,6 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 </p>
 
 
-
 ---
 
 ###  Decision Phase (Cart Management)
