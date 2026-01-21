@@ -76,9 +76,9 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 - ใช้ Vue Reactive State คำนวณยอดรวมและภาษีอัตโนมัติ
 - เก็บข้อมูลตะกร้าสินค้าไว้ใน LocalStorage
 
-<p align="center">
-  <img src="assets/images/cart/cart.png" width="450" />
-</p>
+![cart](assets/images/cart.png)
+
+
 
 ---
 
@@ -94,10 +94,10 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 - แสดงยอดชำระผ่าน Modal
 - จำลองการยืนยันการโอนเงินด้วย PromptPay QR
 
-<p align="center">
-  <img src="screenshots/checkout.png" width="400" />
-  <img src="screenshots/qr-payment.png" width="400" />
-</p>
+![checkout](assets/images/checkout.png)
+![paymentQr](assets/images/paymentQr.png)
+
+
 
 ---
 
@@ -109,10 +109,8 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 - เก็บข้อมูลคำสั่งซื้อในรูปแบบ **Array of Objects**
 - จัดเก็บใน **LocalStorage** เพื่อเรียกดูย้อนหลังได้
 
-<p align="center">
-  <img src="screenshots/order-success.png" width="400" />
-  <img src="screenshots/order-history.png" width="400" />
-</p>
+![OrderSucces](assets/images/OrderSuccess.png)
+![MyOrder](assets/images/MyOrder.png)
 
 ---
 
