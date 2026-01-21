@@ -112,8 +112,6 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 ![OrderSucces](assets/images/OrderSuccess.png)
 ![MyOrder](assets/images/Myorder.png)
 
----
-
 
 ---
 
