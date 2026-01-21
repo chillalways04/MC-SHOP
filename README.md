@@ -33,7 +33,7 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 ---
 
 
----
+
 
 ## Checkout Flow
 1. เพิ่มสินค้าเข้าตะกร้า
@@ -63,13 +63,10 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 - จัดลำดับข้อมูลสำคัญด้วย Visual Hierarchy
 
 <p align="center">
-  <img src="assets/image/home.png" width="400" />
-  <img src="screenshots/product-list.png" width="400" />
+  <img src="assets/images/home.png" width="400" />
+  <img src="assets/images/Detail.png" width="400" />
 </p>
 
-<p align="center">
-  <img src="screenshots/product-detail.png" width="400" />
-</p>
 
 ---
 
