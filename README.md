@@ -62,10 +62,7 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 - จัด Visual Hierarchy ให้ชื่อสินค้า ราคา และปุ่มสั่งซื้อโดดเด่น
 - รองรับการกรองสินค้าเพื่อช่วยให้ผู้ใช้ค้นหาได้เร็วขึ้น
 
-<p align="center">
-  <img src="assets/images/shopping/home.png" width="400" />
-  <img src="assets/images/shopping/Detail.png" width="400" />
-</p>
+![Home](assets/images/home.png)
 
 
 ---
