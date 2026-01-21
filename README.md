@@ -55,16 +55,16 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 
 ###  Shopping Phase (Product Discovery)
 
-ระยะการค้นหาและเลือกชมสินค้า โดยเน้นความสะอาดตาและการจัดวางองค์ประกอบที่เหมาะสม
+ระยะเริ่มต้นของผู้ใช้ในการค้นหาและเลือกชมสินค้า โดยออกแบบให้ข้อมูลสำคัญเข้าถึงง่ายและลดความซับซ้อนในการตัดสินใจ
 
-**UX Highlights**
-- ใช้ **Grid System** และ **Glassmorphism UI**
-- มีระบบ Filter หมวดหมู่สินค้า
-- จัดลำดับข้อมูลสำคัญด้วย Visual Hierarchy
+**UX / Technical Highlights**
+- ใช้ Grid System และ Glassmorphism UI เพื่อความทันสมัย
+- จัด Visual Hierarchy ให้ชื่อสินค้า ราคา และปุ่มสั่งซื้อโดดเด่น
+- รองรับการกรองสินค้าเพื่อช่วยให้ผู้ใช้ค้นหาได้เร็วขึ้น
 
 <p align="center">
-  <img src="assets/images/home.png" width="400" />
-  <img src="assets/images/Detail.png" width="400" />
+  <img src="assets/images/shopping/home.png" width="400" />
+  <img src="assets/images/shopping/Detail.png" width="400" />
 </p>
 
 
