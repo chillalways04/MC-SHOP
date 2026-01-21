@@ -59,7 +59,7 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 
 **UX / Technical Highlights**
 - ใช้ Grid System และ Glassmorphism UI เพื่อความทันสมัย
-- จัด Visual Hierarchy ให้ชื่อสินค้า ราคา และปุ่มสั่งซื้อโดดเด่น
+- จัด Visual Hierarchy ให้ชื่อสินค้า ราคา และเพิ่มสินค้าที่โดดเด่น
 - รองรับการกรองสินค้าเพื่อช่วยให้ผู้ใช้ค้นหาได้เร็วขึ้น
 
 ![Home](assets/images/home.png)
