@@ -68,19 +68,19 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 </p>
 
 
+
 ---
 
 ###  Decision Phase (Cart Management)
 
-ระยะการตัดสินใจและจัดการสินค้าก่อนเข้าสู่ขั้นตอนชำระเงิน
+ผู้ใช้สามารถตรวจสอบและจัดการสินค้าก่อนชำระเงิน พร้อมแสดงผลยอดรวมแบบ Real-time
 
-**Technical Insight**
-- ใช้ **Vue Reactive State**
-- คำนวณยอดรวมและภาษีแบบ Real-time
-- จัดเก็บข้อมูลตะกร้าสินค้าใน **LocalStorage**
+**Technical Highlights**
+- ใช้ Vue Reactive State คำนวณยอดรวมและภาษีอัตโนมัติ
+- เก็บข้อมูลตะกร้าสินค้าไว้ใน LocalStorage
 
 <p align="center">
-  <img src="screenshots/cart.png" width="450" />
+  <img src="assets/images/cart/cart.png" width="450" />
 </p>
 
 ---
