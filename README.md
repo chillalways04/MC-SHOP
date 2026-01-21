@@ -115,8 +115,16 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 
 ---
 
-## Demo
-Demo version (Local only)
+##  Demo
+
+> โปรเจกต์นี้เป็น **Frontend Demo** สำหรับแสดง UX Flow และ Business Logic เท่านั้น  
+> ไม่มี Backend จริง และไม่มีการเชื่อมต่อระบบชำระเงินจริง
+
+- การชำระเงิน (PromptPay / Card / PayPal) เป็น **Simulation**
+- ข้อมูลทั้งหมดถูกจัดเก็บใน **LocalStorage**
+- แนะนำให้รันทดสอบในเครื่อง (Local)
+
+
 
 
 
