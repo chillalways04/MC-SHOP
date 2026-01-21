@@ -63,6 +63,7 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 - รองรับการกรองสินค้าเพื่อช่วยให้ผู้ใช้ค้นหาได้เร็วขึ้น
 
 ![Home](assets/images/home.png)
+![Detail](assets/images/Detail.png)
 
 
 ---
