@@ -110,7 +110,7 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 - จัดเก็บใน **LocalStorage** เพื่อเรียกดูย้อนหลังได้
 
 ![OrderSucces](assets/images/OrderSuccess.png)
-![MyOrder](assets/images/MyOrder.png)
+![MyOrder](assets/images/Myorder.png)
 
 ---
 
