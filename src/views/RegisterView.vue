@@ -81,66 +81,54 @@ const email = ref('')
 const password = ref('')
 const loading = ref(false)
 
+// ... ส่วนของ ref และ Toast เหมือนเดิม ...
+
 const register = async () => {
   const emailInput = (email.value || '').trim().toLowerCase()
   const passwordInput = (password.value || '').trim()
 
   if (!emailInput || !passwordInput) {
-    // ❌ เปลี่ยน alert เป็น Toast
-    Toast.fire({
-      icon: 'warning',
-      title: 'ข้อมูลไม่ครบถ้วน',
-      text: 'กรุณากรอกอีเมลและรหัสผ่าน',
-    })
+    Toast.fire({ icon: 'warning', title: 'ข้อมูลไม่ครบถ้วน', text: 'กรุณากรอกอีเมลและรหัสผ่าน' })
     return
   }
 
-  // เพิ่มเช็ครหัสสั้นไป (Optional)
   if (passwordInput.length < 6) {
-    Toast.fire({
-      icon: 'warning',
-      title: 'รหัสผ่านสั้นเกินไป',
-      text: 'ต้องมีอย่างน้อย 6 ตัวอักษร',
-    })
+    Toast.fire({ icon: 'warning', title: 'รหัสผ่านสั้นเกินไป', text: 'ต้องมีอย่างน้อย 6 ตัวอักษร' })
     return
   }
 
   loading.value = true
 
   try {
-    // เช็คอีเมลซ้ำ
+    // 1. เช็คอีเมลซ้ำ (เปลี่ยนเป็น localhost ให้เหมือนกัน)
     const checkRes = await fetch(
       `http://localhost:3000/users?email=${encodeURIComponent(emailInput)}`,
     )
+
+    if (!checkRes.ok) throw new Error('ไม่สามารถตรวจสอบข้อมูลได้')
+
     const existingUsers = (await checkRes.json()) as UserLite[]
 
     if (existingUsers.length > 0) {
-      // ❌ เปลี่ยน alert เป็น Toast
-      Toast.fire({
-        icon: 'error',
-        title: 'สมัครไม่สำเร็จ',
-        text: 'อีเมลนี้มีผู้ใช้งานอยู่แล้ว',
-      })
+      Toast.fire({ icon: 'error', title: 'สมัครไม่สำเร็จ', text: 'อีเมลนี้มีผู้ใช้งานอยู่แล้ว' })
       loading.value = false
       return
     }
 
-    // สมัครสมาชิกใหม่
+    // 2. สมัครสมาชิกใหม่ (ใช้ localhost เหมือนกัน และลบ createdAt ออก)
     const res = await fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email: emailInput,
         password: passwordInput,
-        createdAt: new Date().toISOString(),
+        // ไม่ต้องส่ง createdAt ไป เพราะ server จัดการเองแล้ว
       }),
     })
 
-    if (!res.ok) {
-      throw new Error('ไม่สามารถสมัครสมาชิกได้ในขณะนี้')
-    }
+    if (!res.ok) throw new Error('ไม่สามารถสมัครสมาชิกได้ในขณะนี้')
 
-    // ส่งอีเมลยืนยัน
+    // 3. ส่งอีเมลยืนยัน
     try {
       await fetch('http://localhost:3000/send-email', {
         method: 'POST',
@@ -148,33 +136,19 @@ const register = async () => {
         body: JSON.stringify({
           to: emailInput,
           subject: 'ยืนยันการสมัครสมาชิก MC SHOP',
-          message:
-            `ขอบคุณที่สมัครสมาชิกกับ MC SHOP\n\n` +
-            `อีเมลที่ใช้สมัคร: ${emailInput}\n\n` +
-            `บัญชีของคุณได้ถูกสร้างเรียบร้อยแล้ว`,
+          message: `ขอบคุณที่สมัครสมาชิกกับ MC SHOP\n\nอีเมลที่ใช้สมัคร: ${emailInput}\n\nบัญชีของคุณได้ถูกสร้างเรียบร้อยแล้ว`,
         }),
       })
     } catch (mailErr) {
       console.warn('ส่งอีเมลไม่สำเร็จ', mailErr)
     }
 
-    // ✅ เปลี่ยน alert เป็น Toast
-    Toast.fire({
-      icon: 'success',
-      title: 'สมัครสมาชิกสำเร็จ!',
-      text: 'กรุณาตรวจสอบอีเมลของคุณ',
-    })
-
+    Toast.fire({ icon: 'success', title: 'สมัครสมาชิกสำเร็จ!', text: 'กรุณาตรวจสอบอีเมลของคุณ' })
     email.value = ''
     password.value = ''
   } catch (err: any) {
     console.error(err)
-    // ❌ เปลี่ยน alert เป็น Toast
-    Toast.fire({
-      icon: 'error',
-      title: 'เกิดข้อผิดพลาด',
-      text: 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้',
-    })
+    Toast.fire({ icon: 'error', title: 'เกิดข้อผิดพลาด', text: 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้' })
   } finally {
     loading.value = false
   }

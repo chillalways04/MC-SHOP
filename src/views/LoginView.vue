@@ -137,7 +137,7 @@ const login = async () => {
     }
 
     // -------------------------------
-    // 🟦 Login สำเร็จ: เก็บข้อมูล
+    //  Login สำเร็จ: เก็บข้อมูล
     // -------------------------------
     localStorage.setItem('userEmail', email.value)
     localStorage.setItem('user', JSON.stringify(data.user || {}))

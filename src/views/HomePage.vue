@@ -334,7 +334,7 @@ const shoeSizes: SizeOption[] = [
 ]
 
 // ----- ข้อมูลสินค้า -----
-// (ข้อมูล products / recommended / trending เหมือนเดิมของคุณ)
+
 const products = ref<Product[]>([
   {
     id: 1,

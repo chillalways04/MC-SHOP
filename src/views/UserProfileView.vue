@@ -225,7 +225,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue' // 🟢 เพิ่ม onMounted, onBeforeUnmount
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 interface ProfileData {
   username: string
@@ -245,23 +245,20 @@ const profileData = ref<ProfileData>({
   dobMasked: '**/ ** / 2004',
 })
 
-// 🟢 Logic สำหรับ Dropdown Menu (ถึงแม้ว่าหน้านี้ไม่ควรมีก็ตาม)
 const showMenu = ref(false)
 const toggleMenu = () => {
   showMenu.value = !showMenu.value
 }
 
 const saveProfile = () => {
-  console.log('บันทึกข้อมูลโปรไฟล์:', profileData.value) // [Functionality] เพิ่ม logic การเรียก API สำหรับบันทึกข้อมูลที่นี่
+  console.log('บันทึกข้อมูลโปรไฟล์:', profileData.value)
 }
 
-// 🟢 Global Event Handlers (เพิ่มเพื่อความสมบูรณ์ของ Component)
 function handleGlobalClick(e: MouseEvent) {
   const target = e.target as HTMLElement
   const menu = document.querySelector('.user-menu')
   const avatar = document.querySelector('.avatar')
 
-  // หากมีการใช้ Dropdown/Menu อื่นๆ
   if (showMenu.value && menu && !menu.contains(target) && avatar && !avatar.contains(target)) {
     showMenu.value = false
   }
@@ -269,11 +266,6 @@ function handleGlobalClick(e: MouseEvent) {
 
 function handleKey(e: KeyboardEvent) {
   if (e.key === 'Escape') {
-    // หากมี Modal หรือ Search Panel
-    // if (showModal.value) closeModal()
-    // if (showSearchPanel.value) closeSearch()
-
-    // ปิด Dropdown เมนู
     if (showMenu.value) {
       showMenu.value = false
     }
@@ -383,9 +375,6 @@ onMounted(() => {
   cursor: pointer;
 }
 
-/* ================================== */
-/* 2. Main Content Wrapper (ชดเชย Header) */
-/* ================================== */
 .content-wrapper {
   padding-top: 72px;
   padding: 1.5rem 2.5rem 3rem;
@@ -394,9 +383,6 @@ onMounted(() => {
   margin-right: auto;
 }
 
-/* ================================== */
-/* 3. Profile Card Styles (อิงตามโทนสีโปรเจกต์) */
-/* ================================== */
 .profile-card-container {
   background: #fff;
   border-radius: 14px;
@@ -424,9 +410,6 @@ onMounted(() => {
   margin-bottom: 2rem;
 }
 
-/* ---------------------------------- */
-/* 4. Profile Layout (Sidebar + Form) */
-/* ---------------------------------- */
 .profile-layout {
   display: flex;
   flex-direction: column;
@@ -447,9 +430,6 @@ onMounted(() => {
   }
 }
 
-/* ---------------------------------- */
-/* 5. Sidebar Styles */
-/* ---------------------------------- */
 .avatar {
   width: 36px;
   height: 36px;
@@ -520,9 +500,6 @@ onMounted(() => {
   fill: none;
 }
 
-/* ---------------------------------- */
-/* 6. Form Styles */
-/* ---------------------------------- */
 .form-sections {
   display: flex;
   flex-direction: column;
@@ -665,7 +642,6 @@ onMounted(() => {
   font-weight: 680;
   cursor: pointer;
 
-  /* ⭐ Blue Glass Effect */
   background: rgba(71, 140, 243, 0.25); /* ฟ้าใส */
   border: 1px solid rgba(204, 223, 250, 0.45); /* ขอบฟ้าอ่อน */
   color: #1839cc;
@@ -675,7 +651,6 @@ onMounted(() => {
 
   box-shadow: 0 4px 20px rgba(13, 110, 253, 0.2);
   transition: 0.25s ease;
-  /* ลบ border: none; ออก เพราะเรากำหนด border 1px ไว้แล้ว */
 }
 
 .save-btn:hover {
@@ -683,12 +658,6 @@ onMounted(() => {
   transform: scale(1.03);
   box-shadow: 0 6px 24px rgba(13, 110, 253, 0.32);
 }
-
-/* HomeView.vue (ส่วน <style scoped>) */
-
-/* =============================================== */
-/* 🟢 User Dropdown Styles (แก้ไข/ปรับปรุง) */
-/* =============================================== */
 
 .user-menu {
   position: absolute;
@@ -704,7 +673,6 @@ onMounted(() => {
   margin-right: -65px;
 }
 
-/* Row ด้านบน (User Icon + ยืนยันแล้ว) */
 .user-row {
   display: flex;
   align-items: center;

@@ -18,8 +18,8 @@ const ADDR_FILE = path.join(__dirname, 'addresses.json')
 const app = express()
 const PORT = process.env.PORT || 3000
 
-app.use(cors())
-app.use(express.json())
+app.use(cors()) // อนุญาตให้หน้าบ้านเชื่อมต่อได้
+app.use(express.json()) // รองรับข้อมูลแบบ JSON
 
 /* ====================== OPTIONAL EMAIL SETUP ====================== */
 
@@ -34,9 +34,9 @@ if (GMAIL_USER && GMAIL_APP_PASSWORD) {
       pass: GMAIL_APP_PASSWORD,
     },
   })
-  console.log('Email service enabled')
+  console.log('✅ Email service enabled')
 } else {
-  console.warn('Email service disabled (demo mode)')
+  console.warn('⚠️ Email service disabled (demo mode)')
 }
 
 /* ====================== INIT LOCAL FILES ====================== */
@@ -57,6 +57,24 @@ const loadUsers = () => {
 }
 
 const saveUsers = (users) => fs.writeFileSync(DATA_FILE, JSON.stringify(users, null, 2), 'utf8')
+
+// ⭐ เพิ่มใหม่: GET /users สำหรับตรวจสอบอีเมลซ้ำ (ที่หน้าบ้านเรียกหา)
+app.get('/users', (req, res) => {
+  try {
+    const users = loadUsers()
+    const { email } = req.query
+
+    if (email) {
+      // ค้นหา user ที่มีอีเมลตรงกัน (ไม่สนพิมพ์เล็กพิมพ์ใหญ่)
+      const found = users.filter((u) => u.email.toLowerCase() === String(email).toLowerCase())
+      return res.json(found)
+    }
+
+    res.json(users)
+  } catch (err) {
+    res.status(500).json({ message: 'Server Error' })
+  }
+})
 
 // Register
 app.post('/users', async (req, res) => {
@@ -93,17 +111,21 @@ app.post('/users', async (req, res) => {
 
 // Login
 app.post('/login', async (req, res) => {
-  const { email, password } = req.body
-  const users = loadUsers()
+  try {
+    const { email, password } = req.body
+    const users = loadUsers()
 
-  const user = users.find((u) => u.email === email)
-  if (!user) return res.status(401).json({ message: 'Login Failed' })
+    const user = users.find((u) => u.email === email)
+    if (!user) return res.status(401).json({ message: 'Login Failed' })
 
-  const isMatch = await bcrypt.compare(password, user.password)
-  if (!isMatch) return res.status(401).json({ message: 'Login Failed' })
+    const isMatch = await bcrypt.compare(password, user.password)
+    if (!isMatch) return res.status(401).json({ message: 'Login Failed' })
 
-  const { password: _, ...userWithoutPassword } = user
-  res.json({ message: 'Login Success', user: userWithoutPassword })
+    const { password: _, ...userWithoutPassword } = user
+    res.json({ message: 'Login Success', user: userWithoutPassword })
+  } catch (err) {
+    res.status(500).json({ message: 'Server Error' })
+  }
 })
 
 /* ====================== ADDRESSES LOGIC ====================== */
@@ -181,5 +203,5 @@ app.post('/send-email', async (req, res) => {
 
 initFiles()
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`)
+  console.log(`🚀 Server running at http://localhost:${PORT}`)
 })
