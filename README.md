@@ -132,7 +132,7 @@ MC SHOP คือเว็บแอปพลิเคชัน E-Commerce ที
 
 ## Author
 - Name: **[Nattawut]**
-- GitHub: https://github.com/your-username
+- GitHub: [https://github.com/your-username](https://github.com/chillalways04)
 
 
 ---
